@@ -50,7 +50,7 @@ const App: React.FC = () => {
   const loadUsers = async () => {
     try {
         const { data, error } = await supabase
-          .from('User11')
+          .from('User')
           .select('*')
           .order('created_at', { ascending: false });
       
