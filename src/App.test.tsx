@@ -42,6 +42,7 @@ describe('App Component', () => {
     expect(screen.getByText('Mail ID')).toBeInTheDocument();
     expect(screen.getByText('User Code')).toBeInTheDocument();
     expect(screen.getByText('Phone Number')).toBeInTheDocument();
+    expect(screen.getByText('Additional Info')).toBeInTheDocument();
     expect(screen.getByText('Actions')).toBeInTheDocument();
   });
 
@@ -52,15 +53,18 @@ describe('App Component', () => {
     const mailIdInput = screen.getByLabelText('Mail ID:');
     const userCodeInput = screen.getByLabelText('User Code:');
     const userPhnumberInput = screen.getByLabelText('Phone Number:');
+    const userAddcolInput = screen.getByLabelText('Additional Column:');
     
     fireEvent.change(userNameInput, { target: { value: 'John Doe' } });
     fireEvent.change(mailIdInput, { target: { value: 'john@example.com' } });
     fireEvent.change(userCodeInput, { target: { value: 'JD001' } });
     fireEvent.change(userPhnumberInput, { target: { value: '+1234567890' } });
+    fireEvent.change(userAddcolInput, { target: { value: 'Additional Info' } });
     
     expect(userNameInput).toHaveValue('John Doe');
     expect(mailIdInput).toHaveValue('john@example.com');
     expect(userCodeInput).toHaveValue('JD001');
     expect(userPhnumberInput).toHaveValue('+1234567890');
+    expect(userAddcolInput).toHaveValue('Additional Info');
   });
 });

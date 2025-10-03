@@ -15,6 +15,7 @@ interface User {
   mail_id: string;
   user_code: string;
   user_phnumber: string;
+  user_addcol: string;
   created_at: string;
 }
 
@@ -26,7 +27,8 @@ const App: React.FC = () => {
     userName: '',
     mailId: '',
     userCode: '',
-    userPhnumber: ''
+    userPhnumber: '',
+    userAddcol: ''
   });
 
   const handleHeaderClick = (): void => {
@@ -72,7 +74,8 @@ const App: React.FC = () => {
       user_name: formData.userName,
       mail_id: formData.mailId,
       user_code: formData.userCode,
-      user_phnumber: formData.userPhnumber
+      user_phnumber: formData.userPhnumber,
+      user_addcol: formData.userAddcol
     };
     
     try {
@@ -97,7 +100,7 @@ const App: React.FC = () => {
       }
       
       loadUsers();
-      setFormData({ userName: '', mailId: '', userCode: '', userPhnumber: '' });
+      setFormData({ userName: '', mailId: '', userCode: '', userPhnumber: '', userAddcol: '' });
     } catch (error) {
       console.error('Error saving user:', error);
       alert('Error saving user: ' + (error as Error).message);
@@ -120,7 +123,8 @@ const App: React.FC = () => {
         userName: user.user_name,
         mailId: user.mail_id,
         userCode: user.user_code,
-        userPhnumber: user.user_phnumber || ''
+        userPhnumber: user.user_phnumber || '',
+        userAddcol: user.user_addcol || ''
       });
       setEditingUserId(userId);
       
@@ -211,6 +215,17 @@ const App: React.FC = () => {
                 placeholder="Enter phone number"
               />
             </div>
+            <div className="form-group">
+              <label htmlFor="userAddcol">Additional Column:</label>
+              <input 
+                type="text" 
+                id="userAddcol" 
+                name="userAddcol" 
+                value={formData.userAddcol}
+                onChange={handleInputChange}
+                placeholder="Enter additional information"
+              />
+            </div>
             <button type="submit">
               {editingUserId ? 'Update User' : 'Add User'}
             </button>
@@ -219,7 +234,7 @@ const App: React.FC = () => {
                 type="button" 
                 onClick={() => {
                   setEditingUserId(null);
-                  setFormData({ userName: '', mailId: '', userCode: '', userPhnumber: '' });
+                  setFormData({ userName: '', mailId: '', userCode: '', userPhnumber: '', userAddcol: '' });
                 }}
                 style={{ marginLeft: '10px', background: '#6c757d' }}
               >
@@ -239,6 +254,7 @@ const App: React.FC = () => {
                 <th>Mail ID</th>
                 <th>User Code</th>
                 <th>Phone Number</th>
+                <th>Additional Info</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -249,6 +265,7 @@ const App: React.FC = () => {
                   <td>{user.mail_id}</td>
                   <td>{user.user_code}</td>
                   <td>{user.user_phnumber || 'N/A'}</td>
+                  <td>{user.user_addcol || 'N/A'}</td>
                   <td>
                     <div className="action-buttons">
                       <button 
