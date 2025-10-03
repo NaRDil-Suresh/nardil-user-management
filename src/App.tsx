@@ -7,6 +7,7 @@ const SUPABASE_URL = process.env.REACT_APP_SUPABASE_URL || 'https://jgwgluakhmgz
 const SUPABASE_ANON_KEY = process.env.REACT_APP_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impnd2dsdWFraG1nemVtZHNxandjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0ODQ3NDgsImV4cCI6MjA3NTA2MDc0OH0.GvBHIJtD-PM6Jpm1A3ujMBgn3QfxkvRGUYyn7IBDoV4';
 
 // Create Supabase client
+// CHECH UPDATE 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 interface User {
@@ -49,7 +50,7 @@ const App: React.FC = () => {
   const loadUsers = async () => {
     try {
         const { data, error } = await supabase
-          .from('User')
+          .from('User11')
           .select('*')
           .order('created_at', { ascending: false });
       
