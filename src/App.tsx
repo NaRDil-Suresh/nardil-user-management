@@ -3,8 +3,8 @@ import './App.css';
 import { createClient } from '@supabase/supabase-js';
 
 // Supabase Configuration
-const SUPABASE_URL = 'https://jgwgluakhmgzemdsqjwc.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impnd2dsdWFraG1nemVtZHNxandjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0ODQ3NDgsImV4cCI6MjA3NTA2MDc0OH0.GvBHIJtD-PM6Jpm1A3ujMBgn3QfxkvRGUYyn7IBDoV4';
+const SUPABASE_URL = process.env.REACT_APP_SUPABASE_URL || 'https://jgwgluakhmgzemdsqjwc.supabase.co';
+const SUPABASE_ANON_KEY = process.env.REACT_APP_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impnd2dsdWFraG1nemVtZHNxandjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0ODQ3NDgsImV4cCI6MjA3NTA2MDc0OH0.GvBHIJtD-PM6Jpm1A3ujMBgn3QfxkvRGUYyn7IBDoV4';
 
 // Create Supabase client
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);

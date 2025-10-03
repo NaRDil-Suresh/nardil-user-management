@@ -21,6 +21,10 @@
     "eject": "react-scripts eject",
     "deploy:staging": "npm run build && netlify deploy --dir=build --alias=staging",
     "deploy:production": "npm run build && netlify deploy --prod --dir=build",
+    "setup:env": "node scripts/setup-environments.js",
+    "dev": "npm start",
+    "staging": "npm run build && netlify deploy --dir=build",
+    "production": "npm run build && netlify deploy --prod --dir=build",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix"
   },
